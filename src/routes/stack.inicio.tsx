@@ -1,6 +1,6 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import Inicio from '../screens/Inicio'
+import inicio from '../screens/inicio'
 
 const Stack = createNativeStackNavigator();
 
@@ -8,8 +8,8 @@ export default function StackRoutes(){
     return (
         <Stack.Navigator screenOptions={{ headerShown: false}}>
             <Stack.Screen
-                name='Inicio'
-                component={Inicio}
+                name='inicio'
+                component={inicio}
             />
         </Stack.Navigator>
     )
