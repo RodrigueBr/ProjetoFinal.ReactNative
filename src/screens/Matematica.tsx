@@ -21,7 +21,7 @@ export default function Matematica() {
       const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer SEU_TOKEN_AQUI`,
+          "Authorization": `API KEY`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -41,6 +41,17 @@ export default function Matematica() {
     }
   }
 
+  async function salvarResposta() {
+    if (!resposta) return;
+    const existentes = await AsyncStorage.getItem("salvos");
+    const lista = existentes ? JSON.parse(existentes) : [];
+    lista.push({
+      id: Date.now().toString(),
+      texto: resposta
+    });
+    await AsyncStorage.setItem("salvos", JSON.stringify(lista));
+  }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>O que vamos estudar hoje, {nome}?</Text>
@@ -52,10 +63,16 @@ export default function Matematica() {
         <Botao titulo="Álgebra nível ENEM"
           onPress={() => chamarAPI("Gere 1 exercício de álgebra nível ENEM. NÃO RESOLVA. APENAS OS NÚMEROS, SEM ENUNCIADO.")}/>
       </View>
+
       {loading && <ActivityIndicator size="large" />}
+
       {resposta ? (
         <View style={styles.responseBox}>
           <Text style={styles.responseText}>{resposta}</Text>
+
+          <TouchableOpacity style={styles.saveButton} onPress={salvarResposta}>
+            <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>Salvar</Text>
+          </TouchableOpacity>
         </View>
       ) : null}
     </ScrollView>
@@ -105,9 +122,17 @@ const styles = StyleSheet.create({
     padding: 18,
     borderRadius: 12,
     width: "100%",
+    gap: 12,
   },
   responseText: {
     fontSize: 16,
     lineHeight: 22,
+  },
+  saveButton: {
+    backgroundColor: "#3498db",
+    padding: 14,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 10,
   },
 });
