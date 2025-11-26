@@ -57,11 +57,11 @@ export default function Matematica() {
       <Text style={styles.title}>O que vamos estudar hoje, {nome}?</Text>
       <View style={styles.boxContainer}>
         <Botao titulo="Equação de 1° Grau"
-          onPress={() => chamarAPI("Gere uma equação de primeiro grau. NÃO RESOLVA, APENAS A EQUAÇÃO. Ex: 2x + 4 = 0")}/>
+          onPress={() => chamarAPI("Gere uma equação de primeiro grau. NÃO RESOLVA, APENAS A EQUAÇÃO, SEM COMENTÁRIOS OU CONVERSA. Ex: Equação de Primeiro Grau: 2x + 4 = 0 (obs: coloca os números sempre na linha de baixo)")}/>
         <Botao titulo="Equação de 2° Grau"
-          onPress={() => chamarAPI("Gere uma equação de segundo grau. NÃO RESOLVA, APENAS A EQUAÇÃO. Ex: 2x² + 4x + 1 = 0")}/>
+          onPress={() => chamarAPI("Gere uma equação de segundo grau. NÃO RESOLVA, APENAS A EQUAÇÃO, SEM COMENTÁRIOS OU CONVERSA. Ex: Equação de Segundo Grau: 2x² + 4x + 1 = 0 (obs: coloca os números sempre na linha de baixo)")}/>
         <Botao titulo="Álgebra nível ENEM"
-          onPress={() => chamarAPI("Gere 1 exercício de álgebra nível ENEM. NÃO RESOLVA. APENAS OS NÚMEROS, SEM ENUNCIADO.")}/>
+          onPress={() => chamarAPI("Gere 1 exercício de álgebra nível ENEM. NÃO RESOLVA. APENAS OS NÚMEROS, SEM COMENTÁRIOS OU CONVERSA E SEM ENUNCIADO; EX: Álgebra Enem: (Reposta gerada) (obs: coloca a resposta sempre na linha de baixo).")}/>
       </View>
 
       {loading && <ActivityIndicator size="large" />}
