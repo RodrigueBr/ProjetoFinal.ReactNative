@@ -1,6 +1,6 @@
-import { useState, useCallback } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useState, useCallback } from "react";
 import { useFocusEffect } from "@react-navigation/native";
 
 export default function Salvos() {
@@ -28,8 +28,8 @@ export default function Salvos() {
       <Text style={styles.title}>Resultados Salvos:</Text>
 
       {lista.map(item => (
-        <View key={item.id} style={styles.card}>
-          <Text style={styles.text}>{item.texto}</Text>
+        <View key={item.id} style={styles.salvo}>
+          <Text style={styles.textoLista}>{item.texto}</Text>
 
           <TouchableOpacity style={styles.delBtn} onPress={() => excluir(item.id)}>
             <Text style={{ color: "#fff", fontWeight: "bold" }}>Excluir</Text>
@@ -49,13 +49,13 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
   },
-  card: {
+  salvo: {
     backgroundColor: "#fff",
     padding: 16,
     borderRadius: 10,
     gap: 10,
   },
-  text: {
+  textoLista: {
     fontSize: 16,
   },
   delBtn: {

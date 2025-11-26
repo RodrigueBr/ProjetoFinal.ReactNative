@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, Alert } from "react-native";
+import { useState, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function Perfil() {
@@ -25,7 +25,7 @@ export default function Perfil() {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>PERFIL</Text>
-      <Text style={styles.label}>Seu nome:</Text>
+      <Text style={styles.nome}>Seu nome:</Text>
       <TextInput style={styles.input}
         placeholder="Digite seu nome"
         value={nome}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  label: {
+  nome: {
     marginTop: 30,
     fontSize: 18,
   },

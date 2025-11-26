@@ -5,7 +5,7 @@ export default function Inicio() {
     <View style={styles.container}>
       <Image 
         source={require('../../assets/Matematica_Inicio.png')} 
-        style={styles.image}
+        style={styles.imagem}
         resizeMode="contain"
       />
 
@@ -15,7 +15,7 @@ export default function Inicio() {
         Seu app para praticar matemática de forma rápida e simples.
       </Text>
 
-      <Text style={styles.description}>
+      <Text style={styles.info}>
         Gere contas automaticamente, pratique quando quiser e salve suas favoritas.
       </Text>
     </View>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#ecf0f1',
   },
-  image: {
+  imagem: {
     width: 180,
     height: 180,
     marginBottom: 25,
@@ -46,10 +46,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 10,
   },
-  description: {
+  info: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#555',
     marginHorizontal: 10,
   },
 });

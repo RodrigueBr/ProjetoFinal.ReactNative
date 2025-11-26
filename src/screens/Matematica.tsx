@@ -21,7 +21,7 @@ export default function Matematica() {
       const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `API KEY`,
+          "Authorization": `Bearer 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`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -55,7 +55,7 @@ export default function Matematica() {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <Text style={styles.title}>O que vamos estudar hoje, {nome}?</Text>
-      <View style={styles.boxContainer}>
+      <View style={styles.btnContainer}>
         <Botao titulo="Equação de 1° Grau"
           onPress={() => chamarAPI("Gere uma equação de primeiro grau. NÃO RESOLVA, APENAS A EQUAÇÃO, SEM COMENTÁRIOS OU CONVERSA. Ex: Equação de Primeiro Grau: 2x + 4 = 0 (obs: coloca os números sempre na linha de baixo)")}/>
         <Botao titulo="Equação de 2° Grau"
@@ -67,10 +67,10 @@ export default function Matematica() {
       {loading && <ActivityIndicator size="large" />}
 
       {resposta ? (
-        <View style={styles.responseBox}>
-          <Text style={styles.responseText}>{resposta}</Text>
+        <View style={styles.btnAjustar}>
+          <Text style={styles.textopadrao}>{resposta}</Text>
 
-          <TouchableOpacity style={styles.saveButton} onPress={salvarResposta}>
+          <TouchableOpacity style={styles.saveBtn} onPress={salvarResposta}>
             <Text style={{ color: "#fff", fontWeight: "bold", fontSize: 16 }}>Salvar</Text>
           </TouchableOpacity>
         </View>
@@ -81,8 +81,8 @@ export default function Matematica() {
 
 function Botao({ titulo, onPress }) {
   return (
-    <TouchableOpacity style={styles.box} onPress={onPress}>
-      <Text style={styles.boxText}>{titulo}</Text>
+    <TouchableOpacity style={styles.btn} onPress={onPress}>
+      <Text style={styles.btnText}>{titulo}</Text>
     </TouchableOpacity>
   );
 }
@@ -102,21 +102,21 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginBottom: 20,
   },
-  boxContainer: {
+  btnContainer: {
     width: "100%",
     gap: 15,
   },
-  box: {
+  btn: {
     backgroundColor: "#d9e6f5",
     padding: 18,
     borderRadius: 12,
     alignItems: "center",
   },
-  boxText: {
+  btnText: {
     fontSize: 18,
     fontWeight: "600",
   },
-  responseBox: {
+  btnAjustar: {
     marginTop: 20,
     backgroundColor: "#fff",
     padding: 18,
@@ -124,11 +124,11 @@ const styles = StyleSheet.create({
     width: "100%",
     gap: 12,
   },
-  responseText: {
+  textopadrao: {
     fontSize: 16,
     lineHeight: 22,
   },
-  saveButton: {
+  saveBtn: {
     backgroundColor: "#3498db",
     padding: 14,
     borderRadius: 10,

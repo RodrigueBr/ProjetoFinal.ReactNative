@@ -6,18 +6,18 @@ export default function Sobre() {
 
       <Image
         source={require('../../assets/Sobre.png')}
-        style={styles.image}
+        style={styles.imagem}
         resizeMode="contain"
       />
 
       <Text style={styles.title}>Sobre o MathApi</Text>
 
-      <Text style={styles.description}>
+      <Text style={styles.info}>
         O MathApi foi desenvolvido com o intuito de ajudar pessoas a praticar
         álgebra matemática de forma simples e rápida.
       </Text>
 
-      <Text style={styles.description}>
+      <Text style={styles.info}>
         O aplicativo foi criado utilizando React Native e faz requisições para a
         API DeepSeek, disponibilizada gratuitamente pelo site HuggingFace.
       </Text>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#ecf0f1',
   },
-  image: {
+  imagem: {
     width: 250,
     height: 250,
     marginBottom: 25,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 15,
   },
-  description: {
+  info: {
     fontSize: 16,
     textAlign: 'center',
     color: '#444',
