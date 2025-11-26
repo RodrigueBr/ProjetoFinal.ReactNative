@@ -21,7 +21,7 @@ export default function Matematica() {
       const response = await fetch("https://router.huggingface.co/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": `Bearer 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`,
+          "Authorization": `API KEY`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
